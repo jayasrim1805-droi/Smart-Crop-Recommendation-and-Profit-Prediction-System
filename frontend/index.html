@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Recommendation System</title>
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient-mesh"></div>
+    <div class="app-wrapper">
+        <header>
+            <div class="logo-icon">🌿</div>
+            <h1>AgroLogic AI</h1>
+            <p>Smart crop recommendations based on soil health, climate, and market risk.</p>
+        </header>
+
+        <main>
+            <section class="glass-panel form-panel">
+                <form id="predictionForm">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="n">Nitrogen (N)</label>
+                            <input type="number" id="n" required placeholder="e.g. 90" min="0" max="200" step="any">
+                            <small class="helper-text">From soil test report</small>
+                        </div>
+                        <div class="input-group">
+                            <label for="p">Phosphorus (P)</label>
+                            <input type="number" id="p" required placeholder="e.g. 40" min="0" max="200" step="any">
+                            <small class="helper-text">From soil test report</small>
+                        </div>
+                        <div class="input-group">
+                            <label for="k">Potassium (K)</label>
+                            <input type="number" id="k" required placeholder="e.g. 40" min="0" max="200" step="any">
+                            <small class="helper-text">From soil test report</small>
+                        </div>
+                        
+                        <div class="input-group autofill-wrapper">
+                            <button type="button" id="autoFillBtn" class="btn-secondary">
+                                <span id="autoFillText">Auto-fill Current Weather 📍</span>
+                            </button>
+                        </div>
+                        <div class="input-group">
+                            <label for="temperature">Temperature (°C)</label>
+                            <input type="number" id="temperature" required placeholder="e.g. 28.5" min="0" max="60" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="humidity">Humidity (%)</label>
+                            <input type="number" id="humidity" required placeholder="e.g. 80.2" min="0" max="100" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="rainfall">Rainfall (mm)</label>
+                            <input type="number" id="rainfall" required placeholder="e.g. 200.5" min="0" max="3000" step="any">
+                            <small class="helper-text">Seasonal area average</small>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn">
+                        <span class="btn-text">Get Recommendation</span>
+                        <div class="loader hidden" id="btnLoader"></div>
+                    </button>
+                </form>
+            </section>
+
+            <section id="resultsSection" class="results-panel hidden">
+                <div class="results-header">
+                    <h2>Top Recommendations</h2>
+                </div>
+                
+                <div class="cards-container" id="cardsContainer">
+                    <!-- Dynamic cards injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
